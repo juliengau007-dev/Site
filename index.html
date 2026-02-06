@@ -39,18 +39,32 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero section" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg__blob hero-bg__blob--1"></div>
+        <div class="hero-bg__blob hero-bg__blob--2"></div>
+        <div class="hero-bg__blob hero-bg__blob--3"></div>
+        <div class="hero-bg__blob hero-bg__blob--4"></div>
+      </div>
       <div class="container hero__content">
-        <p class="hero__greeting reveal">Bonjour, je suis</p>
-        <h1 class="hero__title reveal">Julien <span class="accent">Gauzere</span></h1>
-        <p class="hero__subtitle reveal">Étudiant · Développeur · Créatif</p>
-        <p class="hero__description reveal">
-          Passionné par le développement web et les nouvelles technologies,
-          je conçois des expériences numériques modernes et accessibles.
-        </p>
-        <div class="hero__actions reveal">
-          <a href="#projects" class="btn btn--primary">Voir mes projets</a>
-          <a href="#contact" class="btn btn--outline">Me contacter</a>
+        <div class="hero__text">
+          <p class="hero__greeting reveal">Bonjour, je suis</p>
+          <h1 class="hero__title reveal">Julien <span class="accent">Gauzere</span></h1>
+          <p class="hero__subtitle reveal">Étudiant · Développeur · Créatif</p>
+          <p class="hero__description reveal">
+            Passionné par le développement web et les nouvelles technologies,
+            je conçois des expériences numériques modernes et accessibles.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#projects" class="btn btn--primary">Voir mes projets</a>
+            <a href="#contact" class="btn btn--outline">Me contacter</a>
+          </div>
         </div>
+
+        <div class="hero__robot" aria-hidden="true">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.51/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/ErreDSwiwnrZ3KxQ/scene.splinecode"></spline-viewer>
+        </div>
+
       </div>
     </section>
 
@@ -222,7 +236,7 @@
                 <span class="tag">Tableaux</span>
               </div>
               <div class="project-card__links">
-                <a href="#" class="btn btn--small" aria-label="Voir le projet Maquettage web">Voir le projet</a>
+                <a href="jeux.html" class="btn btn--small" aria-label="Démo">Voir le projet</a>
                 <a href="#" class="btn btn--small btn--outline" aria-label="Code source Maquettage web">Code source</a>
               </div>
             </div>
