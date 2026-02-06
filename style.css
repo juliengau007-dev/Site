@@ -451,11 +451,22 @@ button {
   color: var(--clr-accent);
 }
 
-/* ---------- PROJECTS ---------- */
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-md);
+/* ---------- PROJECTS (3D INFINITE CAROUSEL) ---------- */
+.projects__carousel {
+  position: relative;
+  width: min(920px, 100%);
+  height: clamp(420px, 70vh, 560px);
+  margin-inline: auto;
+  perspective: 1600px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.projects__ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
 }
 
 .project-card {
@@ -464,21 +475,33 @@ button {
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(220px, 60vw, 320px);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .project-card:hover {
   border-color: var(--clr-accent);
-  transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
 
 .project-card__image {
   width: 100%;
-  height: 200px;
+  height: 160px;
   background: linear-gradient(135deg, var(--clr-bg-alt) 0%, var(--clr-surface) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-card__placeholder {
@@ -667,6 +690,104 @@ button {
   transform: translateY(-3px);
 }
 
+/* ---------- PROJECTS (3D INFINITE CAROUSEL) ---------- */
+.projects__carousel {
+  position: relative;
+  width: min(1100px, 100%);
+  height: 480px;
+  margin-inline: auto;
+  perspective: 1600px;
+  overflow: visible;
+}
+
+.projects__ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.project-card {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(260px, 70vw, 380px);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.project-card:hover {
+  border-color: var(--clr-accent);
+  box-shadow: var(--shadow);
+}
+
+.project-card__image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--clr-bg-alt) 0%, var(--clr-surface) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card__placeholder {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  font-family: var(--ff-mono);
+}
+
+.project-card__body {
+  padding: var(--space-md);
+}
+
+.project-card__title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.project-card__description {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.project-card__tags {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  font-family: var(--ff-mono);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background-color: rgba(108, 99, 255, 0.12);
+  color: var(--clr-accent);
+  font-weight: 500;
+}
+
+.project-card__links {
+  display: flex;
+  gap: var(--space-xs);
+}
+
 /* ---------- REVEAL ANIMATIONS ---------- */
 .reveal {
   opacity: 0;
@@ -741,8 +862,8 @@ button {
     flex-direction: column;
   }
 
-  .projects__grid {
-    grid-template-columns: 1fr;
+  .projects__carousel {
+    height: clamp(360px, 75vh, 520px);
   }
 
   .contact__form {

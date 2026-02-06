@@ -139,48 +139,91 @@
     <section class="projects section" id="projects">
       <div class="container">
         <h2 class="section__title reveal">Projets</h2>
-        <div class="projects__grid">
+        <div class="projects__carousel" id="projects-carousel" aria-label="Carrousel de projets">
+          <div class="projects__ring">
 
           <article class="project-card reveal">
             <div class="project-card__image">
-              <span class="project-card__placeholder">Projet 1</span>
+               <img class="project-card__img" src="images/logo.jpg" alt="Loky">
             </div>
             <div class="project-card__body">
-              <h3 class="project-card__title">Application Web</h3>
+              <h3 class="project-card__title">Loky</h3>
               <p class="project-card__description">
-                Une application web full-stack développée avec React et Node.js,
-                permettant de gérer des données en temps réel.
+                Application web de mobilité urbaine permettant de guider les conducteurs vers des parkings disponibles en temps réel.
               </p>
               <div class="project-card__tags">
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">MongoDB</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SQL</span>
+                <span class="tag">PHP</span>
               </div>
               <div class="project-card__links">
                 <a href="#" class="btn btn--small" aria-label="Voir le projet Application Web">Voir le projet</a>
-                <a href="#" class="btn btn--small btn--outline" aria-label="Code source Application Web">Code source</a>
+                <a href="https://github.com/juliengau007-dev/SAE/tree/3e99b623e9460aad794e9259c2d4053985a2007b/loky/public" class="btn btn--small btn--outline" aria-label="Code source Application Web">Code source</a>
               </div>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__image">
-              <span class="project-card__placeholder">Projet 2</span>
+              <img class="project-card__img" src="images/AppGestion.png" alt="Application de Gestion">
             </div>
             <div class="project-card__body">
-              <h3 class="project-card__title">Site Vitrine</h3>
+              <h3 class="project-card__title">Application de Gestion</h3>
               <p class="project-card__description">
-                Un site vitrine responsive et accessible pour une association locale,
-                développé en HTML, CSS et JavaScript.
+                Application de gestion pour le club de lecture fictif « ThemActu ». L’application permet de gérer les abonnements, les adhérents, les thèmes et les modalités de lecture.
               </p>
               <div class="project-card__tags">
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
               </div>
               <div class="project-card__links">
-                <a href="#" class="btn btn--small" aria-label="Voir le projet Site Vitrine">Voir le projet</a>
+                <a href="" class="btn btn--small" aria-label="Voir le projet Site Vitrine">Voir le projet</a>
                 <a href="#" class="btn btn--small btn--outline" aria-label="Code source Site Vitrine">Code source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__image">
+              <img class="project-card__img" src="images/Maquette.png" alt="Maquette">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Maquettage web</h3>
+              <p class="project-card__description">
+                Création de maquettes pour un projet de site web fictif. Les maquettes ont été réalisées à l'aide de Figma/AdobeXD et présentent une interface moderne et intuitive.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">Figma</span>
+                <span class="tag">Adobe</span>
+                <span class="tag">UI/UX</span>
+              </div>
+              <div class="project-card__links">
+                <a href="#" class="btn btn--small" aria-label="Voir le projet Maquettage web">Voir le projet</a>
+                <a href="#" class="btn btn--small btn--outline" aria-label="Code source Maquettage web">Code source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__image">
+              <img class="project-card__img" src="images/Jeux.png" alt="Jeux">
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Jeux</h3>
+              <p class="project-card__description">
+               Réalisation de petits jeux en C (comme un morpion) et de bots utilisant des algorithmes simples, permettant d’explorer la logique de programmation et l’interactivité.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">C</span>
+                <span class="tag">Algorithme</span>
+                <span class="tag">Tableaux</span>
+              </div>
+              <div class="project-card__links">
+                <a href="#" class="btn btn--small" aria-label="Voir le projet Maquettage web">Voir le projet</a>
+                <a href="#" class="btn btn--small btn--outline" aria-label="Code source Maquettage web">Code source</a>
               </div>
             </div>
           </article>
@@ -190,23 +233,25 @@
               <span class="project-card__placeholder">Projet 3</span>
             </div>
             <div class="project-card__body">
-              <h3 class="project-card__title">API REST</h3>
+              <h3 class="project-card__title">Maquettage web</h3>
               <p class="project-card__description">
-                Une API RESTful sécurisée avec authentification JWT,
-                développée avec Python et Flask.
+                Création de maquettes pour un projet de site web fictif. Les maquettes ont été réalisées à l'aide de Figma/AdobeXD et présentent une interface moderne et intuitive.
               </p>
               <div class="project-card__tags">
-                <span class="tag">Python</span>
-                <span class="tag">Flask</span>
-                <span class="tag">PostgreSQL</span>
+                <span class="tag">Figma</span>
+                <span class="tag">Adobe</span>
+                <span class="tag">UI/UX</span>
               </div>
               <div class="project-card__links">
-                <a href="#" class="btn btn--small" aria-label="Voir le projet API REST">Voir le projet</a>
-                <a href="#" class="btn btn--small btn--outline" aria-label="Code source API REST">Code source</a>
+                <a href="#" class="btn btn--small" aria-label="Voir le projet Maquettage web">Voir le projet</a>
+                <a href="#" class="btn btn--small btn--outline" aria-label="Code source Maquettage web">Code source</a>
               </div>
             </div>
           </article>
 
+          
+
+          </div>
         </div>
       </div>
     </section>

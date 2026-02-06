@@ -15,6 +15,7 @@ const contactForm = document.getElementById('contact-form');
 const formStatus  = document.getElementById('form-status');
 const reveals     = document.querySelectorAll('.reveal');
 const sections    = document.querySelectorAll('section[id]');
+const projectsCarousel = document.getElementById('projects-carousel');
 
 // ——— Mobile Navigation ———
 function toggleMenu() {
@@ -124,6 +125,90 @@ const revealObserver = new IntersectionObserver(
 );
 
 reveals.forEach(el => revealObserver.observe(el));
+
+// ——— Projects Carousel (Infinite 3D Rotation) ———
+if (projectsCarousel) {
+  const ring = projectsCarousel.querySelector('.projects__ring');
+  const cards = ring ? ring.querySelectorAll('.project-card') : [];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const radius = 360;
+  let currentAngle = 0;
+  let wheelTimer = null;
+
+  function renderCarousel() {
+    if (!cards.length) return;
+    const step = 360 / cards.length;
+
+    cards.forEach((card, index) => {
+      const angle = currentAngle + index * step;
+      const rad = (angle * Math.PI) / 180;
+      const depth = Math.cos(rad);
+      const scale = reducedMotion ? 1 : 0.8 + depth * 0.2;
+      const opacity = reducedMotion ? 1 : Math.max(0.2, 0.4 + depth * 0.6);
+      const zIndex = Math.round(100 + depth * 50);
+
+      card.style.transform = `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px) scale(${scale})`;
+      card.style.opacity = `${opacity}`;
+      card.style.zIndex = `${zIndex}`;
+    });
+  }
+
+  function snapToNearest() {
+    if (!cards.length) return;
+    const step = 360 / cards.length;
+    currentAngle = Math.round(currentAngle / step) * step;
+    renderCarousel();
+  }
+
+  // Drag to rotate
+  let isDragging = false;
+  let startX = 0;
+  let startAngle = 0;
+
+  projectsCarousel.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startAngle = currentAngle;
+    projectsCarousel.setPointerCapture(e.pointerId);
+  });
+
+  projectsCarousel.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    currentAngle = startAngle + dx * 0.3;
+    renderCarousel();
+  });
+
+  const endDrag = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    if (e && projectsCarousel.hasPointerCapture(e.pointerId)) {
+      projectsCarousel.releasePointerCapture(e.pointerId);
+    }
+    snapToNearest();
+  };
+
+  projectsCarousel.addEventListener('pointerup', endDrag);
+  projectsCarousel.addEventListener('pointerleave', endDrag);
+
+  // Wheel to rotate
+  projectsCarousel.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    currentAngle += e.deltaY * 0.2;
+    renderCarousel();
+    if (wheelTimer) {
+      clearTimeout(wheelTimer);
+    }
+    wheelTimer = setTimeout(() => {
+      snapToNearest();
+      wheelTimer = null;
+    }, 150);
+  }, { passive: false });
+
+  window.addEventListener('resize', renderCarousel);
+
+  renderCarousel();
+}
 
 // ——— Contact Form Validation & Handling ———
 function validateField(field) {
